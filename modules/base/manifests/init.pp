@@ -35,7 +35,9 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class base {
+class base (
+  $firewall_enabled,
+  ) {
 
     include "users"
     include "v_users"
@@ -61,11 +63,15 @@ class base {
   -> Anchor['base::end']
 }
 
-class base::common {
+class base::common (
+  $firewall_enabled = false,
+  ) {
 
     realize(Users::Account['fc'])
 
-    class {'base': }
+    class {'base': 
+            firewall_enabled => $base::common::firewall_enabled,
+          }
 
     anchor { 'base::common::begin': }
     anchor { 'base::common::end': }
