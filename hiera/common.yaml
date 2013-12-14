@@ -6,6 +6,12 @@ path_real: "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/b
 
 #Base Module
 base::motd::template: 'base/motd/motd.base.erb'
+base::hosts::hosts:
+  master:
+    ip: '192.168.122.108'
+    host_aliases:
+      - 'master.pr-z.info'
+      - 'puppetmaster'
 
 #Freepbx Module - TODO Move into asterisk.yaml
 freepbx::params::asterisk_dbpassword: '*7C99FE2524A21E88E9DBE310DB2F754773BF383E' #asterisk
