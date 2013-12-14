@@ -1,2 +1,28 @@
 ---
 classes: ['r_storage']
+
+#ZFS Settings for the host
+zol::resources::zpool:
+  zbackup:
+    pooltype: 'mirror'
+    pooldisks:
+      - "vdb"
+      - "vdc"
+    poolforce: true
+  ztank:
+    pooltype: 'mirror'
+    pooldisks:
+      - "vdd"
+      - "vde"
+    poolforce: true
+
+zol::resources::zfs:
+  fs1:
+    poolname: 'ztank'
+    prop_compression: 'on'
+  fs2:
+    poolname: 'ztank'
+    prop_compression: 'off'
+  fs3:
+    poolname: 'zbackup'
+    prop_compression: 'on'

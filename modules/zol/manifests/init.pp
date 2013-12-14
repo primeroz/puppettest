@@ -40,10 +40,11 @@ class zol {
     import "definitions/*.pp"
 
     include "zol::install"
+    include "zol::resources"
 
     anchor { 'zol::begin': }
     anchor { 'zol::end': }
 
-    Anchor['zol::begin'] -> Class['zol::install']
+    Anchor['zol::begin'] -> Class['zol::install'] -> Class['zol::resources']
         -> Anchor['zol::end']
 }
