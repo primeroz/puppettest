@@ -12,6 +12,7 @@
 #  rb_file = File.join(File.dirname(__FILE__), 'util', 'puppet_settings.rb')
 #  load rb_file if File.exists?(rb_file) or raise e
 #end
+#
 
 Facter.add(:network_range) do
   setcode do
@@ -23,11 +24,12 @@ Facter.add(:network_range) do
 
     case device_nm
     when /255\.255\.255\.0/
-      device_ip.split("\.",3)
+      device_ip.gsub(/(\b(?:\d{1,3}\.){3}).*/,'\1'+'0')
     when /255\.255\.0\.0/
-      "class_b"
+      device_ip.gsub(/(\b(?:\d{1,3}\.){2}).*/,'\1'+'0')
     when /255\.0\.0\.0/
-      "class_a"
+      device_ip.gsub(/(\b(?:\d{1,3}\.){1}).*/,'\1'+'0')
     end
   end
 end
+
