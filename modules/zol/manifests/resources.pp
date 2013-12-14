@@ -7,7 +7,10 @@ class zol::resources (
 
 
   if ($zol::resources::zpool != '') and ($zol::resources::zfs != '') {
-    create_resources(zol::zpool,$zolyaml[zpool],$pools_defaults)
-    create_resources(zol::zfs,$zolyaml[zfs],$zfs_defaults)
+
+    #Create resources from hash
+    create_resources(zol::zpool,$zol::resources::zpool,$pools_defaults)
+    create_resources(zol::zfs,$zol::resources::zfs,$zfs_defaults)
+
   }
 }
