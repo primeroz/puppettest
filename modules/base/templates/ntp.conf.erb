@@ -1,0 +1,22 @@
+# ntp.conf: Managed by puppet.
+#
+<% if @panic == false -%>
+# Keep ntpd from panicking in the event of a large clock skew
+# when a VM guest is suspended and resumed.
+tinker panic 0
+<% end -%>
+
+# Servers
+<% [@ntp_servers].flatten.each do |server| -%>
+server <%= server %><% if @pool_servers.include?(server) -%> prefer<% end %>
+<% end -%>
+
+<% if scope.lookupvar('::is_virtual') == "false" -%>
+# Undisciplined Local Clock. This is a fake driver intended for backup
+# and when no outside source of synchronized time is available. 
+server  127.127.1.0 # local clock
+fudge   127.127.1.0 stratum 10  
+<% end -%>
+
+# Driftfile.
+driftfile <%= @drift_file %>

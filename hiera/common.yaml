@@ -1,0 +1,10 @@
+
+---
+classes : ['base::common']
+permit_root_login : 'yes'
+path_real: "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin"
+base::motd::template: 'base/motd/motd.base.erb'
+freepbx::params::asterisk_dbpassword: '*7C99FE2524A21E88E9DBE310DB2F754773BF383E' #asterisk
+freepbx::params::freepbx_version: '2.11.0' 
+freepbx::params::freepbx_destinationdir: '/data/freepbx_install' 
+r_freepbx::root_dbpassword: 'password' #root password must be plaintet ??

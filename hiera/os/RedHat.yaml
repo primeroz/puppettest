@@ -1,0 +1,7 @@
+---
+#CLASS: base::motd params
+base::motd::ensure: 'present'
+base::motd::config_file: '/etc/motd'
+
+# Path on RedHat server
+path_real: "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin"

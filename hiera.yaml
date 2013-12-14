@@ -1,0 +1,15 @@
+---
+:backends:
+  - yaml
+
+:logger: console
+
+:hierarchy:
+  - "node/%{::fqdn}"
+  - "domain/%{::domain}"
+  - "os/%{::osfamily}"
+  - asterisk
+  - common
+
+:yaml:
+   :datadir: /etc/puppet/hiera

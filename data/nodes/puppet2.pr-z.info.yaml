@@ -1,0 +1,25 @@
+---
+zpool:
+    zbackup:
+        pooltype: 'mirror'
+        pooldisks: 
+            - "vdb"
+            - "vdc"
+        poolforce: true
+    ztank:
+        pooltype: 'mirror'
+        pooldisks: 
+            - "vdd"
+            - "vde"
+        poolforce: true
+
+zfs:
+        fs1:
+                poolname: 'ztank'
+                prop_compression: 'on'
+        fs2:
+                poolname: 'ztank'
+                prop_compression: 'off'
+        fs3:
+                poolname: 'zbackup'
+        
