@@ -16,14 +16,14 @@
 Facter.add(:network_range) do
   setcode do
     #get route for google dns to deterine main network interface
-    device=`ip route get 8.8.8.8 | egrep 8.8.8.8 | cut -d" " -f5`
+    device=`ip route get 8.8.8.8 | egrep 8.8.8.8 | cut -d" " -f5`.chomp
     #get ip for interface
     device_ip=`ifconfig #{device} | egrep "^ +inet addr" | sed -e 's/:/ /g' | awk '{print $3}'`
     device_nm=`ifconfig #{device} | egrep "^ +inet addr" | sed -e 's/:/ /g' | awk '{print $7}'`
 
     case device_nm
     when /255\.255\.255\.0/
-      "class_c"
+      device_ip.split("\.",3)
     when /255\.255\.0\.0/
       "class_b"
     when /255\.0\.0\.0/
