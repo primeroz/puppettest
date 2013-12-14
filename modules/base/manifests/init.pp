@@ -42,9 +42,10 @@ class base {
 
     include "${osfamily}"
     include "base::basedir"
+    include "base::hosts"
     include "base::ntp"
-    include "base::motd"
     include "base::fw"
+    include "base::motd"
 
 
     anchor { 'base::begin': }
@@ -53,6 +54,7 @@ class base {
     Anchor['base::begin'] 
 	-> Class["${osfamily}"]
 	-> Class['base::basedir'] 
+	-> Class['base::hosts'] 
   -> Class['base::ntp'] 
   -> Class['base::fw'] 
   -> Class['base::motd']

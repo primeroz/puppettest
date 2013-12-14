@@ -9,6 +9,7 @@
   - "domain/%{::domain}"
   - "os/%{::osfamily}"
   - asterisk
+  - zol
   - common
 
 :yaml:
