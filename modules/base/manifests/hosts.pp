@@ -15,9 +15,9 @@ class base::hosts (
 
   #Add Entry for host itself
   if ($base::hosts::self) {
-    host { $::hostname:
+    host { $::fqdn:
       ip            => $::ipaddress,
-      host_aliases  => $::fqdn,
+      host_aliases  => $::hostname,
       ensure        => 'present',
     }
   }
