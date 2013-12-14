@@ -44,10 +44,10 @@ TLSCertificateKeyFile  <%= scope.lookupvar('ldap::params::ssl_prefix') %>/<%= @s
 #######################################################################
 
 # FIXME: puppet
-backend		bdb
+backend		hdb
 
 # FIXME: puppet
-database	bdb
+database	hdb
 suffix		"<%= @suffix %>"
 directory	<%= scope.lookupvar('ldap::params::db_prefix') %>
 rootdn		"<%= @rootdn %>"
