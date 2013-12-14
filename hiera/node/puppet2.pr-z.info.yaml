@@ -1,7 +1,6 @@
 ---
 classes: ['r_storage']
 
-base::common::firewall_enabled: false
 
 #ZFS Settings for the host
 zol::resources::zpool:

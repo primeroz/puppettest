@@ -36,7 +36,7 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 class base (
-  $firewall_enabled,
+  $manage_firewall,
   ) {
 
     include "users"
@@ -48,7 +48,7 @@ class base (
     include "base::ntp"
 
     class { "base::fw": 
-              firewall_enabled => $base::firewall_enabled,
+              manage_firewall => $base::manage_firewall,
           }
 
     include "base::motd"
@@ -68,13 +68,13 @@ class base (
 }
 
 class base::common (
-  $firewall_enabled = false,
+  $manage_firewall = false,
   ) {
 
     realize(Users::Account['fc'])
 
     class {'base': 
-            firewall_enabled => $base::common::firewall_enabled,
+            manage_firewall => $base::common::manage_firewall,
           }
 
     anchor { 'base::common::begin': }

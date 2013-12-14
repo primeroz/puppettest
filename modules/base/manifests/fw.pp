@@ -1,8 +1,8 @@
 class base::fw (
-  $firewall_enabled = false,
+  $manage_firewall = false,
   ){
 
-  if $base::fw::firewall_enabled {
+  if $base::fw::manage_firewall {
     # metatype to purge unmanaged firewall resources
 	  resources { "firewall":
 	    purge => true

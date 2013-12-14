@@ -2,4 +2,4 @@
 ---
 d_environment : 'development'
 
-base::common::firewall_enabled: true
+base::common::manage_firewall: true

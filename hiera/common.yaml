@@ -13,7 +13,7 @@ base::hosts::hosts:
       - 'master.pr-z.info'
       - 'puppetmaster'
 
-base::common::firewall_enabled: false
+base::common::manage_firewall: false
 
 #Freepbx Module - TODO Move into asterisk.yaml
 freepbx::params::asterisk_dbpassword: '*7C99FE2524A21E88E9DBE310DB2F754773BF383E' #asterisk
