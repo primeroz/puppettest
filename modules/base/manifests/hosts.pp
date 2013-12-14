@@ -2,14 +2,11 @@ class base::hosts (
   $hosts    =   '',
   ) {
 
-  $bool_hosts=any2bool($hosts)
-
   $hosts_default = {
     ensure => 'present',
   }
 
-  if $base::hosts::bool_hosts {
-    validate_hash($hosts)
+  if ($base::hosts::hosts != '') and validate_hash($base::hosts::hosts) {
     create_resources(host,$hosts,$hosts_default)
   }
 
