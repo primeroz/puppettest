@@ -50,7 +50,8 @@ define zol::zfs (
 
     exec { "zfs_${poolname}_${zfsname_real}_create":
         command => "zfs create ${poolname}/${zfsname_real}",
-        unless  => "zfs list -H ${poolname}/${zfsname_real}"
+        unless  => "zfs list -H ${poolname}/${zfsname_real}",
+        require => Zol::Zpool[$poolname],
     } ->
     zol::zfsprop { "${poolname}_${zfsname_real}_compression":
 	propname  => "compression",
