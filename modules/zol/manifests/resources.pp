@@ -1,8 +1,8 @@
 class zol::resources (
   $zpool = '',
   $zfs = '',
-  $pools_defaults = {}
-  $zfs_defaults = {}
+  $pools_defaults = {},
+  $zfs_defaults = {},
   ){
 
 
