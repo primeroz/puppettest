@@ -1,17 +1,21 @@
-class base::fw {
+class base::fw (
+  $firewall_enabled = false,
+  ){
 
+  if $base::fw::firewall_enabled {
     # metatype to purge unmanaged firewall resources
-	resources { "firewall":
-	  purge => true
-	}
+	  resources { "firewall":
+	    purge => true
+	  }
 
-	Firewall {
-	  before  => Class['base::fw::post'],
-	  require => Class['base::fw::pre'],
-	}
+	  Firewall {
+	    before  => Class['base::fw::post'],
+	    require => Class['base::fw::pre'],
+	  }
 
-	class { ['base::fw::pre', 'base::fw::post']: }
-	class { 'firewall': }
+	  class { ['base::fw::pre', 'base::fw::post']: }
+	  class { 'firewall': }
+  }
 }
 
 
