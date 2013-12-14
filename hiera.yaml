@@ -6,6 +6,7 @@
 
 :hierarchy:
   - "node/%{::fqdn}"
+  - "network/%{::network_range}"
   - "domain/%{::domain}"
   - "os/%{::osfamily}"
   - asterisk
