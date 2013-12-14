@@ -49,7 +49,7 @@ class ldap::params {
 
       }
 
-      $modules_base  = [ 'back_bdb' ]
+      $modules_base  = [ 'back_hdb' ]
 
       $schema_prefix   = "${prefix}/schema"
       $schema_base     = [ 'core', 'cosine', 'nis', 'inetorgperson', ]
@@ -118,7 +118,7 @@ class ldap::params {
 
         /(?i:OVS)/ : {
           $schema_base   = [ 'core', 'cosine', 'nis', 'inetorgperson', 'authldap' ]
-          $modules_base  = [ 'back_bdb' ]
+          $modules_base  = [ 'back_hdb' ]
         }
 
         default : {
@@ -179,7 +179,7 @@ class ldap::params {
       $ssl_prefix    = '/etc/ssl/certs'
       $server_run    = '/var/run/slapd'
       $schema_base   = [ 'core', 'cosine', 'nis', 'inetorgperson', ]
-      $modules_base  = [ 'back_bdb' ]
+      $modules_base  = [ 'back_hdb' ]
       $index_base    = [
         'index objectclass  eq',
         'index entryCSN     eq',
