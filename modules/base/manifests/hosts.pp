@@ -2,7 +2,7 @@ class base::hosts (
   $hosts    =   '',
   ) {
 
-  $bool_hosts=array2bool($hosts)
+  $bool_hosts=any2bool($hosts)
 
   $hosts_default = {
     ensure => 'present',
