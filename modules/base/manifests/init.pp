@@ -52,18 +52,23 @@ class base {
 
     Anchor['base::begin'] 
 	-> Class["${osfamily}"]
-	-> Class['base::basedir'] -> Class['base::ntp'] 
-        -> Class['base::fw'] -> Class['motd']
-        -> Anchor['base::end']
+	-> Class['base::basedir'] 
+  -> Class['base::ntp'] 
+  -> Class['base::fw'] 
+  -> Class['base::motd']
+  -> Anchor['base::end']
 }
 
-class base::common inherits base {
+class base::common {
 
     realize(Users::Account['fc'])
+
+    class {'base': }
 
     anchor { 'base::common::begin': }
     anchor { 'base::common::end': }
 
     Anchor['base::common::begin'] 
-        -> Anchor['base::common::end']
+    -> Class['base']
+    -> Anchor['base::common::end']
 }
