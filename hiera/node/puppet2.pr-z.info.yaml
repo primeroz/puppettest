@@ -1,6 +1,7 @@
 ---
-classes: ['r_storage']
-
+classes: 
+  - 'r_storage'
+  - 'r_ds::master'
 
 #ZFS Settings for the host
 zol::resources::zpool:

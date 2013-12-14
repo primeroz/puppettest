@@ -16,7 +16,13 @@ base::hosts::hosts:
 base::common::manage_firewall: false
 
 #Freepbx Module - TODO Move into asterisk.yaml
+#TODO Apply all through role ?
 freepbx::params::asterisk_dbpassword: '*7C99FE2524A21E88E9DBE310DB2F754773BF383E' #asterisk
 freepbx::params::freepbx_version: '2.11.0' 
 freepbx::params::freepbx_destinationdir: '/data/freepbx_install' 
 r_freepbx::root_dbpassword: 'password' #root password must be plaintet ??
+
+#ROLE Directory Server params
+r_ds::suffix: 'dc=pr-z,dc=info'
+r_ds::rootpw: 'password' #password
+r_ds::sync_binddn: 'cn=sync,dc=pr-z,dc=info'
