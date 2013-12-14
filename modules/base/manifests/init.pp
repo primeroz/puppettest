@@ -46,9 +46,11 @@ class base (
     include "base::basedir"
     include "base::hosts"
     include "base::ntp"
-    include "base::fw"
     include "base::motd"
 
+    if $firewall_enabled {
+      class { "base::fw": }
+    }
 
     anchor { 'base::begin': }
     anchor { 'base::end': }
