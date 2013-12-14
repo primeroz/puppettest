@@ -26,21 +26,17 @@ class r_ds::master (
       ],
   }
 
-
   class { 'apache':
           default_mods => false,
           serveradmin  => "fc@pr-z.info",
           servername   => "${::fqdn}",
-          user         => "asterisk",
-          group        => "asterisk",
-        }..
-  class { 'apache::mod::status':}.
+        }
+  class { 'apache::mod::status':}
   class { 'apache::mod::info':}
   class { 'apache::mod::dir':}
   class { 'apache::mod::mime':}
   class { 'apache::mod::mime_magic':}
-  class { 'apache::mod::php':}.
-
+  class { 'apache::mod::php':}
 
   anchor { 'r_ds::begin': }
   anchor { 'r_ds::end': }
