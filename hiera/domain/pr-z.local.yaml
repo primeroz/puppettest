@@ -1,0 +1,5 @@
+
+---
+d_environment : 'development'
+
+base::common::manage_firewall: true
