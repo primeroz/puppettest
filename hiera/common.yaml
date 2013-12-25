@@ -11,6 +11,7 @@ base::hosts::hosts:
     ip: '192.168.122.108'
     host_aliases:
       - 'master.pr-z.info'
+      - 'master.pr-z.local'
       - 'puppetmaster'
 
 base::common::manage_firewall: false
